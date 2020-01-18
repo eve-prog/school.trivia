@@ -19,13 +19,13 @@ public class DatabaseUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserEntity userEntity = repository.findByUsername(username);
+        UserEntity userEntity = repository.findByEmail(username);
         if (userEntity == null){
             throw new UsernameNotFoundException("Could not find username");
         }
         if (userEntity.getRole() == null || userEntity.getRole().isEmpty()) {
             throw new UsernameNotFoundException("No role found for user");
         }
-        return new MyUser(userEntity.getUsername(), userEntity.getPassword(), userEntity.getRole(), userEntity.getAge());
+        return new MyUser(userEntity.getEmail(),userEntity.getPassword(),userEntity.getRole());
     }
 }

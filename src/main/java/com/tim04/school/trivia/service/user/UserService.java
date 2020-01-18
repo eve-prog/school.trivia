@@ -19,18 +19,21 @@ public class UserService implements UserDetailsService {
     }
 
     @Transactional
-    public void save(String username, String password, int age, String role){
+    public void save(String first_name, String last_name, String e_mail, String phone, String active, String password, String role){
         UserEntity userEntity = new UserEntity();
-        userEntity.setUsername(username);
+        userEntity.setFirst_name(first_name);
+        userEntity.setLast_name(last_name);
+        userEntity.setEmail(e_mail);
+        userEntity.setPhone(phone);
+        userEntity.setActive(active);
         userEntity.setPassword(password);
         userEntity.setRole("ADMIN");
-        userEntity.setAge(age);
         repository.save(userEntity);
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserEntity userEntity = repository.findByUsername(username);
-        return new MyUser(userEntity.getUsername(),userEntity.getPassword(),userEntity.getRole(),userEntity.getAge());
+        UserEntity userEntity = repository.findByEmail(username);
+        return new MyUser(userEntity.getEmail(), userEntity.getPassword(), userEntity.getRole());
     }
 }

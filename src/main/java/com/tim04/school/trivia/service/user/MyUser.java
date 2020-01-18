@@ -12,13 +12,13 @@ public class MyUser implements UserDetails {
     private final String username;
     private final String password;
     private final  String role;
-    private final int age;
 
-    public MyUser(String username, String password, String role, int age) {
+
+    public MyUser(String username, String password, String role) {
         this.username = username;
         this.password = password;
         this.role = role;
-        this.age = age;
+
     }
 
     @Override

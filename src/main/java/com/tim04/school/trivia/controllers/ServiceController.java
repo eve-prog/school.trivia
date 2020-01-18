@@ -26,7 +26,7 @@ public class ServiceController {
     @PostMapping("save")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void save(@RequestBody SubjectSaveBody body){
-        subjectService.save(body.getQuestions(),body.getAnswers());
+   //    subjectService.save(body.getQuestions(),body.getAnswers());
     }
 
     @GetMapping("all")

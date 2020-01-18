@@ -19,10 +19,8 @@ public class SubjectService {
     }
 
     @Transactional
-    public void save(String questions, String answers){
+    public void save(String name){
         SubjectEntity entity = new SubjectEntity();
-        entity.setQuestions(questions);
-        entity.setAnswers(answers);
         subjectRepository.save(entity);
     }
     @Transactional(readOnly = true)
