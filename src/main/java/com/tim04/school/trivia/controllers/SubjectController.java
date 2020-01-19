@@ -10,39 +10,42 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
 @RequestMapping("subject")
 @CrossOrigin(origins = "http://localhost:3306")
-public class SubjectsController {
+public class SubjectController {
     private final SubjectService subjectService;
 
+
     @Autowired
-    public SubjectsController(SubjectService subjectService) {
+    public SubjectController(SubjectService subjectService) {
+
         this.subjectService = subjectService;
     }
 
     @PostMapping("save")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void save(@RequestBody SubjectSaveBody body){
-   //    subjectService.save(body.getQuestions(),body.getAnswers());
+    public void save(@RequestBody SubjectSaveBody body) {
+        //    subjectService.save(body.getQuestions(),body.getAnswers());
     }
 
     @GetMapping("all")
-    public List<SubjectEntity> all(){
+    public List<SubjectEntity> all() {
         logUser();
         return subjectService.findAll();
     }
 
-    private void logUser(){
+    private void logUser() {
         SecurityContext securityContext = SecurityContextHolder.getContext();
         Authentication authentication = securityContext.getAuthentication();
         Object principal = authentication.getPrincipal();
         if (principal instanceof User) {
             User authenticatedUser = (User) principal;
             System.out.println("User: " + authenticatedUser.getUsername());
-        }else{
+        } else {
             System.out.println("Could not obtain username");
         }
     }
