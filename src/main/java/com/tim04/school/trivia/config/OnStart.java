@@ -23,8 +23,8 @@ public class OnStart implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        userService.save("admin", passwordEncoder.encode("admin"), " " , "ADMIN");
-        subjectService.save("Cand s-a nascut Mihai Eminescu?", "15 ianuarie 1850");
+        userService.save("admin", "admin", "blabla@gmil.com", "0766757888", "active", "lalala", "user");
+        subjectService.save("Cand s-a nascut Mihai Eminescu?");
 
     }
 }
