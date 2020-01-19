@@ -27,7 +27,7 @@ public class OnStart implements ApplicationRunner {
         subjectService.save("Literatura");
         subjectService.save("Music");
         subjectService.save("Math");
-        userService.save("admin", "admin", "blabla@gmil.com", "0766757888", "active", "lalala", "user");
+        userService.save("admin", "admin", "blabla@gmil.com", "0766757888", "active", passwordEncoder.encode("admin"), "user");
 
     }
 }
