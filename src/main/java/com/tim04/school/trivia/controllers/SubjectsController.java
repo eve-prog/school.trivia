@@ -15,11 +15,11 @@ import java.util.List;
 @RestController
 @RequestMapping("subject")
 @CrossOrigin(origins = "http://localhost:3306")
-public class ServiceController {
+public class SubjectsController {
     private final SubjectService subjectService;
 
     @Autowired
-    public ServiceController(SubjectService subjectService) {
+    public SubjectsController(SubjectService subjectService) {
         this.subjectService = subjectService;
     }
 

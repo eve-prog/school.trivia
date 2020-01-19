@@ -21,6 +21,7 @@ public class SubjectService {
     @Transactional
     public void save(String name){
         SubjectEntity entity = new SubjectEntity();
+        entity.setName(name);
         subjectRepository.save(entity);
     }
     @Transactional(readOnly = true)
