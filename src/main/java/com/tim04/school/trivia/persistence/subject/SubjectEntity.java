@@ -11,7 +11,6 @@ public class SubjectEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long subject_id;
-
     @Column(name = "name")
     private String name;
 
