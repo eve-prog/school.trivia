@@ -11,18 +11,11 @@ public class SubjectEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long subject_id;
+
     @Column(name = "name")
     private String name;
 
     
-    public Long getSubject_id() {
-        return subject_id;
-    }
-
-    public void setSubject_id(Long subject_id) {
-        this.subject_id = subject_id;
-    }
-
     public String getName() {
         return name;
     }

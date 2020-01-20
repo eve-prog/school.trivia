@@ -13,8 +13,10 @@ public class QuestionsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long question_id;
+
     @Column(name = "description")
     private String description;
+
     @Column(name = "level")
     private String level;
 
@@ -25,19 +27,13 @@ public class QuestionsEntity {
     @JoinColumn(name="QUESTION_ID")
     private Set<AnswersEntity> answers;
 
-
-    public Long getQuestion_id() {
-        return question_id;
-    }
-    public void setQuestion_id(Long question_id) {
-        this.question_id = question_id;
-    }
     public String getDescription() {
         return description;
     }
     public void setDescription(String description) {
         this.description = description;
     }
+
     public String getLevel() {
         return level;
     }

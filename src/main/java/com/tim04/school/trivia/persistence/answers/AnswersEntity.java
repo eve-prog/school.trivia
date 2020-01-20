@@ -19,14 +19,6 @@ public class AnswersEntity {
     @ManyToOne
     private QuestionsEntity questions;
 
-    public Long getAnswer_id() {
-        return answer_id;
-    }
-
-    public void setAnswer_id(Long answer_id) {
-        this.answer_id = answer_id;
-    }
-
     public String getDescription() {
         return description;
     }
