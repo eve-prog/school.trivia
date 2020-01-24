@@ -16,11 +16,22 @@ UserEntity {
     @Column(name="last_name")
     private String last_name;
 
+    @Column (name = "username")
+    private String username;
+
     @Column(name="email")
     private String email;
 
     @Column(name="phone")
     private String phone;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername( String username ) {
+        this.username = username;
+    }
 
     @Column(name="active")
     private String active;

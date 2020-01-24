@@ -33,7 +33,7 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserEntity userEntity = repository.findByEmail(username);
+        UserEntity userEntity = repository.findByUsername(username);
         return new MyUser(userEntity.getEmail(), userEntity.getPassword(), userEntity.getRole());
     }
 }
