@@ -1,5 +1,6 @@
 package com.tim04.school.trivia.controllers;
 
+<<<<<<< HEAD
 import com.tim04.school.trivia.config.DatabaseUserDetailsService;
 import com.tim04.school.trivia.config.JwtProvider;
 import com.tim04.school.trivia.persistence.user.UserDto;
@@ -59,4 +60,23 @@ public class LoginController {
             throw new Exception("Invalid Credentials", e);
         }
     }
+=======
+import java.security.Principal;
+
+import org.springframework.boot.actuate.trace.http.HttpTrace.Request;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class LoginController {
+
+	//@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@GetMapping(value = "/login")
+	public String loginPage(Model model) {
+		return "loginPage";
+	}
+
+
+>>>>>>> 536291328f76b9eb5aa9b69a6dd14f3f1a8be8e3
 }

@@ -1,5 +1,8 @@
 package com.tim04.school.trivia.persistence.answers;
 
+import com.tim04.school.trivia.persistence.questions.QuestionsEntity;
+import com.tim04.school.trivia.persistence.subject.SubjectEntity;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,13 +16,8 @@ public class AnswersEntity {
     @Column(name = "description")
     private String description;
 
-    public Long getAnswer_id() {
-        return answer_id;
-    }
-
-    public void setAnswer_id(Long answer_id) {
-        this.answer_id = answer_id;
-    }
+    @ManyToOne
+    private QuestionsEntity questions;
 
     public String getDescription() {
         return description;
