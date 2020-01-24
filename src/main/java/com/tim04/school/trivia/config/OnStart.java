@@ -23,10 +23,9 @@ public class OnStart implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-<<<<<<< HEAD
-=======
+
        // userService.save("admin", "admin", "aa@aa.com", "123", "", passwordEncoder.encode("admin") , "ADMIN");
->>>>>>> 536291328f76b9eb5aa9b69a6dd14f3f1a8be8e3
+
         subjectService.save("Literatura");
         subjectService.save("Music");
         subjectService.save("Math");

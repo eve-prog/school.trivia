@@ -1,6 +1,6 @@
 package com.tim04.school.trivia.controllers;
 
-<<<<<<< HEAD
+/*<<<<<<< HEAD*/
 import com.tim04.school.trivia.config.DatabaseUserDetailsService;
 import com.tim04.school.trivia.config.JwtProvider;
 import com.tim04.school.trivia.persistence.user.UserDto;
@@ -13,9 +13,17 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import java.security.Principal;
+import org.springframework.boot.actuate.trace.http.HttpTrace.Request;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.validation.Valid;
 
@@ -33,14 +41,14 @@ public class LoginController {
     private static final Logger LOGGER = LoggerFactory.getLogger(LoginController.class);
 
     @Autowired
-    public LoginController(AuthenticationManager authenticationManager, JwtProvider jwtProvider, DatabaseUserDetailsService userDetailsService) {
+    public LoginController( AuthenticationManager authenticationManager, JwtProvider jwtProvider, DatabaseUserDetailsService userDetailsService ) {
         this.authenticationManager = authenticationManager;
         this.jwtProvider = jwtProvider;
         this.userDetailsService = userDetailsService;
     }
 
     @PostMapping(value = "/login")
-    public ResponseEntity<?> createAuthenticationToken( @RequestBody @Valid UserDto userAuthenticationRequest) throws Exception {
+    public ResponseEntity<?> createAuthenticationToken( @RequestBody @Valid UserDto userAuthenticationRequest ) throws Exception {
         authenticate(userAuthenticationRequest.getUsername(), userAuthenticationRequest.getPassword());
         final UserDetails userDetails = userDetailsService
                 .loadUserByUsername(userAuthenticationRequest.getUsername());
@@ -48,7 +56,7 @@ public class LoginController {
         return ResponseEntity.ok(token);
     }
 
-    private void authenticate(String username, String password) throws Exception {
+    private void authenticate( String username, String password ) throws Exception {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
             LOGGER.info("Login successfull");
@@ -60,23 +68,6 @@ public class LoginController {
             throw new Exception("Invalid Credentials", e);
         }
     }
-=======
-import java.security.Principal;
-
-import org.springframework.boot.actuate.trace.http.HttpTrace.Request;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-
-@Controller
-public class LoginController {
-
-	//@RequestMapping(value = "/login", method = RequestMethod.GET)
-	@GetMapping(value = "/login")
-	public String loginPage(Model model) {
-		return "loginPage";
-	}
 
 
->>>>>>> 536291328f76b9eb5aa9b69a6dd14f3f1a8be8e3
 }

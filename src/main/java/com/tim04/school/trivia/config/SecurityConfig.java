@@ -9,11 +9,11 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-<<<<<<< HEAD
+/*<<<<<<< HEAD*/
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-=======
->>>>>>> 536291328f76b9eb5aa9b69a6dd14f3f1a8be8e3
+/*=======*/
+/*>>>>>>> 536291328f76b9eb5aa9b69a6dd14f3f1a8be8e3*/
 
 
 @EnableWebSecurity
