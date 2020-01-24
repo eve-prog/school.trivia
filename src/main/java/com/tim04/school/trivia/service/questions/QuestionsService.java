@@ -2,7 +2,7 @@ package com.tim04.school.trivia.service.questions;
 
 import com.tim04.school.trivia.controllers.QuestionsSaveBody;
 import com.tim04.school.trivia.persistence.questions.QuestionsEntity;
-import com.tim04.school.trivia.persistence.questions.QuestionsRepository;
+import com.tim04.school.trivia.persistence.repositories.QuestionsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

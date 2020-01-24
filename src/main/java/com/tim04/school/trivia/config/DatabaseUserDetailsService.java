@@ -1,15 +1,13 @@
 package com.tim04.school.trivia.config;
 
-import com.tim04.school.trivia.config.JwtProvider;
 import com.tim04.school.trivia.persistence.user.UserEntity;
-import com.tim04.school.trivia.persistence.user.UserRepository;
+import com.tim04.school.trivia.persistence.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Optional;

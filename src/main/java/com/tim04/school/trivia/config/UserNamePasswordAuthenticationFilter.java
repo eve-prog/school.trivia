@@ -3,6 +3,7 @@ package com.tim04.school.trivia.config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
 
 import javax.servlet.FilterChain;
@@ -14,7 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
 
-public class UserNamePasswordAuthenticationFilter extends org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter {
+public class UserNamePasswordAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     private static final String BEARER = "Bearer";
     private static final Logger LOGGER = LoggerFactory.getLogger(UserNamePasswordAuthenticationFilter.class);
 

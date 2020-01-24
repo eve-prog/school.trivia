@@ -3,6 +3,7 @@ package com.tim04.school.trivia.config;
 import com.tim04.school.trivia.config.DatabaseUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -15,9 +16,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 /*=======*/
 /*>>>>>>> 536291328f76b9eb5aa9b69a6dd14f3f1a8be8e3*/
 
-
+@Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+    @Autowired
     private final DatabaseUserDetailsService userService;
 
     @Autowired

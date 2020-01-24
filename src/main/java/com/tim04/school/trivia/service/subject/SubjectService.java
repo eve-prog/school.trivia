@@ -1,7 +1,7 @@
 package com.tim04.school.trivia.service.subject;
 
 import com.tim04.school.trivia.persistence.subject.SubjectEntity;
-import com.tim04.school.trivia.persistence.subject.SubjectRepository;
+import com.tim04.school.trivia.persistence.repositories.SubjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

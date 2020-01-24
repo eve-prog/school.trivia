@@ -1,7 +1,7 @@
 package com.tim04.school.trivia.controllers;
 
 import com.tim04.school.trivia.persistence.user.UserEntity;
-import com.tim04.school.trivia.persistence.user.UserRepository;
+import com.tim04.school.trivia.persistence.repositories.UserRepository;
 import com.tim04.school.trivia.service.user.UserRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,19 +10,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
+@RestController
+@RequestMapping("api/user")
 public class UserController {
     private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    //private CartRepository cartRepository;
 
     @Bean
     public PasswordEncoder encoder() {

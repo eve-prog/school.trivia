@@ -1,14 +1,19 @@
 package com.tim04.school.trivia.persistence.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name="users")
 public class
 UserEntity {
     @Id
-    @GeneratedValue
-    private Long user_id;
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @JsonProperty
+    private long user_id;
 
     @Column(name="first_name")
     private String first_name;
@@ -16,7 +21,8 @@ UserEntity {
     @Column(name="last_name")
     private String last_name;
 
-    @Column (name = "username")
+    @Column(name = "username", nullable = false, unique = true)
+    @JsonProperty
     private String username;
 
     @Column(name="email")
@@ -36,7 +42,8 @@ UserEntity {
     @Column(name="active")
     private String active;
 
-    @Column(name="password")
+    @NotEmpty
+    @Column(nullable = false, name="password")
     private String password;
 
     @Column(name="role")
@@ -89,7 +96,7 @@ UserEntity {
     public void setActive(String active) {
         this.active = active;
     }
-
+@JsonIgnore
     public String getPassword() {
         return password;
     }

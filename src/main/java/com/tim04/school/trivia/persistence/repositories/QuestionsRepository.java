@@ -1,5 +1,6 @@
-package com.tim04.school.trivia.persistence.questions;
+package com.tim04.school.trivia.persistence.repositories;
 
+import com.tim04.school.trivia.persistence.questions.QuestionsEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
