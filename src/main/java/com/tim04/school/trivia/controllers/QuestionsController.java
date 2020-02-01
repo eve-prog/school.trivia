@@ -1,6 +1,6 @@
 package com.tim04.school.trivia.controllers;
 
-import com.tim04.school.trivia.persistence.questions.QuestionsEntity;
+import com.tim04.school.trivia.persistence.questions.Question;
 import com.tim04.school.trivia.service.questions.QuestionsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,12 +27,12 @@ public class QuestionsController {
     }
 
     @GetMapping(value = "all")
-    public List<QuestionsEntity> all(){
+    public List<Question> all(){
         return questionsService.findAll();
     }
 
     @GetMapping(value = "search/{level}")
-    public List<QuestionsEntity> search(@PathVariable("level") String l){
+    public List<Question> search(@PathVariable("level") String l){
         return questionsService.searchByLevel(l);
     }
 

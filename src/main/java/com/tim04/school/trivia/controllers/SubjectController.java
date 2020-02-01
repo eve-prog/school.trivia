@@ -1,10 +1,11 @@
 package com.tim04.school.trivia.controllers;
 
 
-import com.tim04.school.trivia.persistence.subject.SubjectEntity;
+import com.tim04.school.trivia.persistence.subject.Subject;
 import com.tim04.school.trivia.service.subject.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("subject")
+@RequestMapping("subjects")
 @CrossOrigin(origins = "http://localhost:3306")
 public class SubjectController {
     private final SubjectService subjectService;
@@ -32,10 +33,15 @@ public class SubjectController {
         //    subjectService.save(body.getQuestions(),body.getAnswers());
     }
 
-    @GetMapping("all")
-    public List<SubjectEntity> all() {
+    @GetMapping
+    public List<Subject> getSubjects() {
         logUser();
         return subjectService.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Subject> getItemById(@PathVariable Long id) {
+        return null; //ResponseEntity.of(itemRepository.findById(id));
     }
 
     private void logUser() {

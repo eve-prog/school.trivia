@@ -1,16 +1,17 @@
 package com.tim04.school.trivia.persistence.questions;
 
-import com.tim04.school.trivia.persistence.answers.AnswersEntity;
-import com.tim04.school.trivia.persistence.subject.SubjectEntity;
+import com.tim04.school.trivia.persistence.answers.Answer;
+import com.tim04.school.trivia.persistence.subject.Subject;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
 @Table(name = "questions")
-public class QuestionsEntity {
+public class Question {
 
     @Id
+    @Column(name = "question_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long question_id;
 
@@ -21,11 +22,12 @@ public class QuestionsEntity {
     private String level;
 
     @ManyToOne
-    private SubjectEntity subject;
+    @JoinColumn(name="subject_id", nullable=false)
+ //   @JoinColumn
+    private Subject subject;
 
-    @OneToMany(cascade=CascadeType.ALL)
-    @JoinColumn(name="QUESTION_ID")
-    private Set<AnswersEntity> answers;
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
+    private Set<Answer> answers;
 
     public String getDescription() {
         return description;

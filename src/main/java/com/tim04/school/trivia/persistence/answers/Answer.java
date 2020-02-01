@@ -1,13 +1,12 @@
 package com.tim04.school.trivia.persistence.answers;
 
-import com.tim04.school.trivia.persistence.questions.QuestionsEntity;
-import com.tim04.school.trivia.persistence.subject.SubjectEntity;
+import com.tim04.school.trivia.persistence.questions.Question;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "answers")
-public class AnswersEntity {
+public class Answer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,7 +16,9 @@ public class AnswersEntity {
     private String description;
 
     @ManyToOne
-    private QuestionsEntity questions;
+    @JoinColumn(name = "question_id")
+//    @JoinColumn
+    private Question question;
 
     public String getDescription() {
         return description;

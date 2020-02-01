@@ -1,6 +1,6 @@
 package com.tim04.school.trivia.service.subject;
 
-import com.tim04.school.trivia.persistence.subject.SubjectEntity;
+import com.tim04.school.trivia.persistence.subject.Subject;
 import com.tim04.school.trivia.persistence.repositories.SubjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,12 +20,12 @@ public class SubjectService {
 
     @Transactional
     public void save(String name){
-        SubjectEntity entity = new SubjectEntity();
+        Subject entity = new Subject();
         entity.setName(name);
         subjectRepository.save(entity);
     }
     @Transactional(readOnly = true)
-    public List<SubjectEntity> findAll(){
+    public List<Subject> findAll(){
         return subjectRepository.findAll();
     }
 }
